@@ -1,0 +1,21 @@
+SET ENV=%1
+
+if defined %ENV goto CMDRUN
+
+:CMDRUN
+if /i %ENV%==a GOTO A
+if /i %ENV%==b GOTO B
+
+goto FOO
+
+:A
+SET JAVA_VERSION=jrockit-jdk1.6.0_45-R28.2.7-4.1.0
+START "" "C:\Progra~1\Java\%JAVA_VERSION%\bin\jrmc.exe"
+goto FOO
+
+:B
+SET JAVA_VERSION=jdk1.8.0_45
+START "" "C:\Progra~1\Java\%JAVA_VERSION%\bin\jmc.exe"
+goto FOO
+
+a :FOO
